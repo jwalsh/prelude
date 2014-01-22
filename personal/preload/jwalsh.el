@@ -31,33 +31,5 @@
          "http://news.ycombinator.com/rss"
          "~/notes/feeds.org" "Hacker News")))
 
-(setq org-capture-templates
-      `(("t" "Todo" entry (file+headline "~/sandbox/notes/gtd.org" "Tasks")
-         "* TODO %?\n  %i\n  %a")
-        ("j" "Journal" entry (file+datetree "~/sandbox/notes/journal.org")
-         "* %?\nEntered on %U\n  %i\n  %a")
-        ("u"
-         "Task: Read this URL"
-         entry
-         (file+headline "tasks.org" "Articles To Read")
-         ,(concat "* TODO Read article: '%:description'\nURL: %c\n\n")
-         :empty-lines 1
-         :immediate-finish t)
-
-        ("w"
-         "Capture web snippet"
-         entry
-         (file+headline "my-facts.org" "Inbox")
-         ,(concat "* Fact: '%:description'        :"
-                  ":\n:PROPERTIES:\n:DATE_ADDED: %u\n:SOURCE_URL: %c\n:END:\n\n%i\n%?\n")
-         :empty-lines 1
-         :immediate-finish t)
-        ("c"
-         "Default template"
-         entry
-         (file+headline "~/sandbox/notes/capture.org" "Notes")
-         "* %^{Title}\n\n  Source: %u, %c\n\n  %i"
-         :empty-lines 1)))
-
 (provide 'jwalsh)
 ;;; jwalsh.el ends here
